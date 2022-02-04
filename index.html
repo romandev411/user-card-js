@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user card</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .user-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .card {
+            flex: 1;
+            flex-basis: 200px;
+            max-width: 300px;
+            padding: 8px;
+        }
+
+        .card-user__img-wrap {
+            display: block;
+            width: 100%;
+            object-fit: cover;
+            aspect-ratio: 2 / 1;
+        }
+
+        .card-user__social-list {
+            display: flex;
+            font-size: 10px;
+        }
+
+        .card-user__icon {
+            width: 20px;
+            height: 20px;
+            margin: 4px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="user-list" id="user-list">
+
+    </ul>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
