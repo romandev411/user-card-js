@@ -2,6 +2,21 @@ const list = document.querySelector('#user-list');
 
 const data = responseData;
 
+list.addEventListener('click', toggleActive);
+
+function toggleActive(e) {
+    const el = e.target.closest('.card');
+    const els = [...e.currentTarget.children];
+    
+    el.classList.add('active');
+
+    els.forEach((item) => {
+        if (item !== el) {
+            item.classList.remove('active');
+        }
+    });
+}
+
 const cards = data.map((data)=> {
     createSocialList(data)
     return createElement(
@@ -36,7 +51,6 @@ function createElement(type, options, ...children) {
 
     if (options.attributes) {
         for (const item of Object.entries(options.attributes)) {
-            console.log(Object.entries(options.attributes))
             el.setAttribute(item[0], item[1])
         }
     }
@@ -87,6 +101,7 @@ function createSocialList(data) {
                 {
                     classes: ['card-user__icon'], 
                     attributes: {
+                        alt: map.get(items),
                         title: map.get(items),
                         src: `./img/${map.get(items)}.png`
                     },
