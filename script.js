@@ -2,13 +2,22 @@ const list = document.querySelector('#user-list');
 
 const data = responseData;
 
-list.addEventListener('click', toggleActive);
+document.addEventListener('click', toggleActive);
 
 function toggleActive(e) {
     const el = e.target.closest('.card');
-    const els = [...e.currentTarget.children];
+    const els = [...list.children];
     
-    el.classList.add('active');
+   
+    if (el) {
+        el.classList.add('active');
+    } else {
+        els.forEach((item) => {
+            if (item !== el) {
+                item.classList.remove('active');
+            }
+        });
+    }
 
     els.forEach((item) => {
         if (item !== el) {
